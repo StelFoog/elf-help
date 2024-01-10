@@ -1,0 +1,12 @@
+# Source code
+/src
+/test
+
+# Config
+/jest.config.js
+/tsconfig.json
+/yarn.lock
+
+# Meta
+/LICENCE.md
+/TODO.md

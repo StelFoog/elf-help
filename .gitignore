@@ -1,0 +1,7 @@
+# Project files
+/dist
+/node_modules
+/test/coverage
+
+# Misc
+.DS_Store
