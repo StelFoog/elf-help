@@ -1,19 +1,19 @@
 # Elf Help
 
-Your very own helper elf; tools and functions to help with problems encoutered during advent of code.
+Your very own helper elf; tools and functions to help with problems that may be encountered during advent of code.
 
 ## Usage
 
 All _major_ features can be accessed through the default `elf` import:
 
 ```ts
-import elf from 'elf-help';
+import elf from "elf-help";
 ```
 
 All _major_ and _minor_ features can also be accessed as named imports:
 
 ```ts
-import { linesIntersect2D, ElfCartesianError } from 'elf-help';
+import { linesIntersect2D, ElfCartesianError } from "elf-help";
 ```
 
 ## Features
@@ -45,8 +45,14 @@ import { linesIntersect2D, ElfCartesianError } from 'elf-help';
 
 | Feature              | Description                                                                        |
 | -------------------- | ---------------------------------------------------------------------------------- |
+| `sum`                | Returns the sum of all provided numbers                                            |
+| `product`            | Returns the product of all provided numbers                                        |
 | `gcd`                | Finds the Greatest Common Divisor of two numbers                                   |
 | `lcm`                | Finds the Lowest Common Multiple of two numbers                                    |
+| `factorial`          | Returns the factorial of a number                                                  |
+| `permutations`       | Returns all permutations of a list, optionally limited to `n`-length permutations  |
+| `combinations`       | Returns all combinations of a list, optionally limited to `n`-length combinations  |
+| `divisors`           | Returns all divisors of a positive integer                                         |
 | `new Matrix`         | Creates a new `Matrix` object                                                      |
 | `matrix`             | Clone of `new Matrix`                                                              |
 | `Matrix.get`         | Gets the element of a matrix for a given `x` and `y`                               |
@@ -68,3 +74,9 @@ import { linesIntersect2D, ElfCartesianError } from 'elf-help';
 | `Range.overlaps` | Checks if a `Range` overlaps with the range                                            |
 |                  | Can optionally return a detailed object with what's contained and outside of the range |
 | `ElfRangeError`  | Error thrown by range functions                                                        |
+
+### Parse
+
+| Feature        | Description                   |
+| -------------- | ----------------------------- |
+| `parseNumbers` | Finds all numbers in a string |

@@ -102,8 +102,6 @@ export class Fraction {
 		if (typeof that === 'number')
 			return new Fraction(this._numerator * that, this._denominator /* this.shouldSimplify */);
 
-		console.log(this);
-		console.log(that);
 		return new Fraction(
 			this._numerator * that._numerator,
 			this._denominator * that._denominator

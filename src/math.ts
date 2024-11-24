@@ -5,6 +5,22 @@ export class ElfMathError extends Error {
 }
 
 /**
+ * Returns the sum of a list of numbers
+ * @returns Sum
+ */
+export function sum(...numbers: number[]) {
+	return numbers.reduce((prev, curr) => prev + curr, 0);
+}
+
+/**
+ * Returns the product of  a list of numbers
+ * @returns Product
+ */
+export function product(...numbers: number[]) {
+	return numbers.reduce((prev, curr) => prev * curr, 1);
+}
+
+/**
  * Finds the greatest common devisor for two integers
  * @throws `ElfMathError` if either of the parameters isn't an integer
  */
@@ -31,6 +47,106 @@ export function lcm(a: number, b: number) {
 	if (!Number.isInteger(b)) throw new ElfMathError('`b` is not an integer');
 
 	return Math.abs(a * b) / gcd(a, b);
+}
+
+/**
+ * Returns the factorial value of a number
+ * @param n A positive integer
+ * @returns Factorial of number
+ * @throws When `n` is not a positive integer
+ */
+export function factorial(n: number): number {
+	if (!Number.isInteger(n) || n < 0) throw new ElfMathError(`${n} is not a positive integer`);
+
+	let fac = 1;
+	for (let i = n; i > 0; i--) fac *= i;
+
+	return fac;
+}
+
+/**
+ * Returns all possible permutations of an array
+ * @param list Array which to permute
+ */
+export function permutations<T>(list: T[], n: number = list.length): T[][] {
+	if (!Number.isInteger(n) || n < 0) throw new ElfMathError(`n=${n} is not a positive integer`);
+	if (list.length < n) throw new ElfMathError('`n` cannot be larger than the length of `list`');
+	return permute(list, n);
+}
+
+function permute<T>(arr: T[], n: number, mem: T[] = []): T[][] {
+	const res: T[][] = [];
+	const stateQueue: { arr: T[]; mem: T[] }[] = [{ arr, mem }];
+	while (stateQueue.length) {
+		const curr = stateQueue.shift()!;
+		if (curr.mem.length >= n) {
+			res.push(curr.mem);
+			continue;
+		}
+		for (let i = 0; i < curr.arr.length; i++)
+			stateQueue.push({
+				arr: curr.arr.slice(0, i).concat(curr.arr.slice(i + 1)),
+				mem: [...curr.mem, curr.arr[i]],
+			});
+	}
+	// if (n === mem.length) return [mem];
+	// // const results: T[][] = [];
+	// for (let i = 0; i < list.length; i++) {
+	// 	const curr = list[i];
+	// 	results.push(...permute([...list.slice(0, i), ...list.slice(i + 1)], n, [...mem, curr]));
+	// }
+
+	return res;
+}
+
+/**
+ * Returns all `n` length combinations of `list`
+ * @param list List of items to select combinations from
+ * @param n Defaults to `list.length`
+ */
+export function combinations<T>(list: T[], n: number = list.length): T[][] {
+	if (!Number.isInteger(n) || n < 0) throw new ElfMathError(`n=${n} is not a positive integer`);
+	if (list.length < n) throw new ElfMathError('`n` cannot be larger than the length of `list`');
+	return combinate(list, n);
+}
+
+function combinate<T>(arr: T[], n: number, mem: T[] = []): T[][] {
+	const res: T[][] = [];
+	const stateQueue: { arr: T[]; mem: T[] }[] = [{ arr, mem }];
+	while (stateQueue.length) {
+		const curr = stateQueue.shift()!;
+		if (curr.mem.length >= n) {
+			res.push(curr.mem);
+			continue;
+		}
+		for (let i = 0; i < curr.arr.length; i++)
+			stateQueue.push({ arr: curr.arr.slice(i + 1), mem: [...curr.mem, curr.arr[i]] });
+	}
+	return res;
+	// if (mem.length === n) return [mem];
+	// const res: T[][] = [];
+	// for (let i = 0; i < arr.length; i++) {
+	// 	res.push(...combinate(arr.slice(i + 1), n, [...mem, arr[i]]));
+	// }
+	// return res;
+}
+
+/**
+ * Returns all divisors of a number
+ * @param n A positive integer
+ * @returns Array containing all divisors
+ * @throws When `n` is not a positive integer
+ */
+export function divisors(n: number) {
+	if (!Number.isInteger(n) || n < 0) throw new ElfMathError(`${n} is not a positive integer`);
+	const divisors = new Set<number>();
+	for (let i = 1; i <= Math.sqrt(n); i++) {
+		if (n % i === 0) {
+			divisors.add(i);
+			divisors.add(n / i);
+		}
+	}
+	return Array.from(divisors);
 }
 
 export class ElfMatrixError extends Error {

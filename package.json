@@ -1,21 +1,28 @@
 {
 	"name": "elf-help",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"description": "Helper tools for advent of code, your very own helper elf",
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
 	"author": "StelFoog",
 	"license": "MIT",
 	"private": false,
+	"homepage": "https://github.com/StelFoog/elf-help",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/StelFoog/elf-help.git"
+	},
 	"keywords": [
 		"advent-of-code",
 		"aoc",
+		"tools",
 		"utilities",
 		"coordinate",
 		"polygon",
 		"fraction",
 		"math",
-		"range"
+		"range",
+		"parse"
 	],
 	"scripts": {
 		"build": "tsc",
@@ -32,5 +39,15 @@
 	},
 	"exports": {
 		".": "./dist/index.js"
+	},
+	"prettier": {
+		"arrowParens": "always",
+		"bracketSpacing": true,
+		"jsxSingleQuote": false,
+		"printWidth": 100,
+		"semi": true,
+		"tabWidth": 2,
+		"useTabs": true,
+		"trailingComma": "es5"
 	}
 }
