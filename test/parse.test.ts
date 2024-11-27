@@ -12,10 +12,18 @@ describe("parseNumbers", () => {
 	});
 
 	test("Disallow negative numbers", () => {
-		expect(elf.parseNumbers("4-2.5-0", { allowNegativeNumbers: false })).toEqual([4, 2.5, 0]);
+		expect(elf.parseNumbers("4 -2.5 -0 0", { allowNegativeNumbers: false })).toEqual([4, 0]);
 	});
 
 	test("Disallow decimal numbers", () => {
-		expect(elf.parseNumbers("-4.25.0", { allowDecimalNumbers: false })).toEqual([-4, 25, 0]);
+		expect(elf.parseNumbers("-4 .25 .0", { allowDecimalNumbers: false })).toEqual([-4, 0]);
+	});
+
+	test("Also split on single", () => {
+		expect(elf.parseNumbers("4x5", { alsoSplitOn: "x" })).toEqual([4, 5]);
+	});
+
+	test("Also split on multiple", () => {
+		expect(elf.parseNumbers("4x5=20", { alsoSplitOn: ["x", "="] })).toEqual([4, 5, 20]);
 	});
 });
