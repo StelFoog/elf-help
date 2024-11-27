@@ -59,6 +59,15 @@ function combinate<T>(arr: T[], n: number, mem: T[] = []): T[][] {
 	return res;
 }
 
+/**
+ *
+ * @param list List of items to rotate
+ * @returns Copy of list rotated
+ * @example
+ * elf.rotate([1, 2, 3, 4, 5, 6], 2) // => [5, 6, 1, 2, 3, 4]
+ *
+ * elf.rotate([1, 2, 3, 4, 5, 6], -2) // => [3, 4, 5, 6, 1, 2]
+ */
 export function rotate<T>(list: T[], n: number): T[] {
 	if (!Number.isInteger(n)) throw new ElfIterateError(`n=${n} is not an integer`);
 	return list.map((_, idx) => {
