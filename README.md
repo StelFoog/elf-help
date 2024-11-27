@@ -41,6 +41,26 @@ import { linesIntersect2D, ElfCartesianError } from "elf-help";
 | `Line2D`       | A 2 dimentional line         |
 | `Line3D`       | A 3 dimentional line         |
 
+### Fraction
+
+| Feature             | Description                                       |
+| ------------------- | ------------------------------------------------- |
+| `new Fraction`      | Creates a new `Fraction` object                   |
+| `fraction`          | Clone of `new Fraction`                           |
+| `Fraction.add`      | Adds together two fractions                       |
+| `Fraction.subtract` | Subtracts two fractions                           |
+| `Fraction.multiply` | Multiplies together two fractions                 |
+| `Fraction.divide`   | Divides two fractions                             |
+| `Fraction.value`    | Returns the number representation of the fraction |
+
+### Iterate
+
+| Feature        | Description                                                                       |
+| -------------- | --------------------------------------------------------------------------------- |
+| `permutations` | Returns all permutations of a list, optionally limited to `n`-length permutations |
+| `combinations` | Returns all combinations of a list, optionally limited to `n`-length combinations |
+| `rotate`       | Returns all copy of an array rotated `n` steps                                    |
+
 ### Math
 
 | Feature              | Description                                                                        |
@@ -50,12 +70,10 @@ import { linesIntersect2D, ElfCartesianError } from "elf-help";
 | `gcd`                | Finds the Greatest Common Divisor of two numbers                                   |
 | `lcm`                | Finds the Lowest Common Multiple of two numbers                                    |
 | `factorial`          | Returns the factorial of a number                                                  |
-| `permutations`       | Returns all permutations of a list, optionally limited to `n`-length permutations  |
-| `combinations`       | Returns all combinations of a list, optionally limited to `n`-length combinations  |
 | `divisors`           | Returns all divisors of a positive integer                                         |
 | `new Matrix`         | Creates a new `Matrix` object                                                      |
 | `matrix`             | Clone of `new Matrix`                                                              |
-| `Matrix.get`         | Gets the element of a matrix for a given `x` and `y`                               |
+| `Matrix.get`         | Gets the element of the matrix for a given `x` and `y`                             |
 | `Matrix.isSquare`    | If the matrix width is equal to the height                                         |
 | `Matrix.validate`    | Validates that the matrix has the same width for all rows (i.e. is a valid matrix) |
 | `Matrix.determinant` | Finds the determinant of a square matrix                                           |

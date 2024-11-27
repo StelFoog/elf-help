@@ -8,18 +8,8 @@ import {
 	linesIntersect2D,
 } from "./cartesian";
 import { Fraction, fraction } from "./fraction";
-import {
-	gcd,
-	lcm,
-	factorial,
-	permutations,
-	divisors,
-	Matrix,
-	matrix,
-	combinations,
-	sum,
-	product,
-} from "./math";
+import { combinations, permutations, rotate } from "./iterate";
+import { gcd, lcm, factorial, divisors, Matrix, matrix, sum, product } from "./math";
 import { parseNumbers } from "./parse";
 import { Range, range } from "./range";
 
@@ -34,13 +24,14 @@ const elf = {
 	linesIntersect2D,
 	Fraction,
 	fraction,
+	combinations,
+	permutations,
+	rotate,
 	sum,
 	product,
 	gcd,
 	lcm,
 	factorial,
-	permutations,
-	combinations,
 	divisors,
 	Matrix,
 	matrix,
@@ -51,6 +42,7 @@ const elf = {
 
 export * from "./cartesian";
 export * from "./fraction";
+export * from "./iterate";
 export * from "./math";
 export * from "./parse";
 export * from "./range";

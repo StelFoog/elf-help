@@ -25,8 +25,8 @@ export function product(...numbers: number[]) {
  * @throws `ElfMathError` if either of the parameters isn't an integer
  */
 export function gcd(a: number, b: number): number {
-	if (!Number.isInteger(a)) throw new ElfMathError('`a` is not an integer');
-	if (!Number.isInteger(b)) throw new ElfMathError('`b` is not an integer');
+	if (!Number.isInteger(a)) throw new ElfMathError("`a` is not an integer");
+	if (!Number.isInteger(b)) throw new ElfMathError("`b` is not an integer");
 
 	a = Math.abs(a);
 	b = Math.abs(b);
@@ -43,8 +43,8 @@ export function gcd(a: number, b: number): number {
  * @throws `ElfMathError` if either of the parameters isn't an integer
  */
 export function lcm(a: number, b: number) {
-	if (!Number.isInteger(a)) throw new ElfMathError('`a` is not an integer');
-	if (!Number.isInteger(b)) throw new ElfMathError('`b` is not an integer');
+	if (!Number.isInteger(a)) throw new ElfMathError("`a` is not an integer");
+	if (!Number.isInteger(b)) throw new ElfMathError("`b` is not an integer");
 
 	return Math.abs(a * b) / gcd(a, b);
 }
@@ -62,73 +62,6 @@ export function factorial(n: number): number {
 	for (let i = n; i > 0; i--) fac *= i;
 
 	return fac;
-}
-
-/**
- * Returns all possible permutations of an array
- * @param list Array which to permute
- */
-export function permutations<T>(list: T[], n: number = list.length): T[][] {
-	if (!Number.isInteger(n) || n < 0) throw new ElfMathError(`n=${n} is not a positive integer`);
-	if (list.length < n) throw new ElfMathError('`n` cannot be larger than the length of `list`');
-	return permute(list, n);
-}
-
-function permute<T>(arr: T[], n: number, mem: T[] = []): T[][] {
-	const res: T[][] = [];
-	const stateQueue: { arr: T[]; mem: T[] }[] = [{ arr, mem }];
-	while (stateQueue.length) {
-		const curr = stateQueue.shift()!;
-		if (curr.mem.length >= n) {
-			res.push(curr.mem);
-			continue;
-		}
-		for (let i = 0; i < curr.arr.length; i++)
-			stateQueue.push({
-				arr: curr.arr.slice(0, i).concat(curr.arr.slice(i + 1)),
-				mem: [...curr.mem, curr.arr[i]],
-			});
-	}
-	// if (n === mem.length) return [mem];
-	// // const results: T[][] = [];
-	// for (let i = 0; i < list.length; i++) {
-	// 	const curr = list[i];
-	// 	results.push(...permute([...list.slice(0, i), ...list.slice(i + 1)], n, [...mem, curr]));
-	// }
-
-	return res;
-}
-
-/**
- * Returns all `n` length combinations of `list`
- * @param list List of items to select combinations from
- * @param n Defaults to `list.length`
- */
-export function combinations<T>(list: T[], n: number = list.length): T[][] {
-	if (!Number.isInteger(n) || n < 0) throw new ElfMathError(`n=${n} is not a positive integer`);
-	if (list.length < n) throw new ElfMathError('`n` cannot be larger than the length of `list`');
-	return combinate(list, n);
-}
-
-function combinate<T>(arr: T[], n: number, mem: T[] = []): T[][] {
-	const res: T[][] = [];
-	const stateQueue: { arr: T[]; mem: T[] }[] = [{ arr, mem }];
-	while (stateQueue.length) {
-		const curr = stateQueue.shift()!;
-		if (curr.mem.length >= n) {
-			res.push(curr.mem);
-			continue;
-		}
-		for (let i = 0; i < curr.arr.length; i++)
-			stateQueue.push({ arr: curr.arr.slice(i + 1), mem: [...curr.mem, curr.arr[i]] });
-	}
-	return res;
-	// if (mem.length === n) return [mem];
-	// const res: T[][] = [];
-	// for (let i = 0; i < arr.length; i++) {
-	// 	res.push(...combinate(arr.slice(i + 1), n, [...mem, arr[i]]));
-	// }
-	// return res;
 }
 
 /**
@@ -162,11 +95,11 @@ export class Matrix {
 
 	constructor(definition: number[][]) {
 		const height = definition.length;
-		if (height < 1) throw new ElfMatrixError('Matrix must have height');
+		if (height < 1) throw new ElfMatrixError("Matrix must have height");
 		const width = definition[0].length;
-		if (width < 1) throw new ElfMatrixError('Matrix must have width');
+		if (width < 1) throw new ElfMatrixError("Matrix must have width");
 
-		if (height < 2 && width < 2) throw new ElfMatrixError('Matrix cannot be 1x1');
+		if (height < 2 && width < 2) throw new ElfMatrixError("Matrix cannot be 1x1");
 
 		this.__definition__ = definition;
 		this.__height__ = height;
@@ -202,7 +135,7 @@ export class Matrix {
 	 * @throws `ElfMatrixError` if the matrix isn't square
 	 */
 	determinant(): number {
-		if (!this.isSquare) throw new ElfMatrixError('Cannot find determinant of non-square matrix');
+		if (!this.isSquare) throw new ElfMatrixError("Cannot find determinant of non-square matrix");
 
 		if (this.__height__ === 2 && this.__width__ === 2) {
 			return this.get(0, 0) * this.get(1, 1) - this.get(0, 1) * this.get(1, 0);
