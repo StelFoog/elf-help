@@ -96,3 +96,23 @@ describe("rotate", () => {
 		expect(() => elf.rotate([1, 2, 3, 4, 5], 0.1)).toThrow(ElfIterateError);
 	});
 });
+
+describe("zip", () => {
+	test('zip [1, 2, 3] and ["a", "b", "c"]', () => {
+		expect(elf.zip([1, 2, 3], ["a", "b", "c"])).toEqual([
+			[1, "a"],
+			[2, "b"],
+			[3, "c"],
+		]);
+	});
+
+	test("zip [1, 2, 3] and [1]", () => {
+		expect(() => elf.zip([1, 2, 3], [1])).toThrow(ElfIterateError);
+	});
+});
+
+describe("count", () => {
+	test("count [1, 2, 3, 4, 5, 1, 2, 3, 1]", () => {
+		expect(elf.count([1, 2, 3, 4, 5, 1, 2, 3, 1])).toEqual({ 1: 3, 2: 2, 3: 2, 4: 1, 5: 1 });
+	});
+});

@@ -8,7 +8,7 @@ import {
 	linesIntersect2D,
 } from "./cartesian";
 import { Fraction, fraction } from "./fraction";
-import { combinations, permutations, rotate } from "./iterate";
+import { combinations, permutations, rotate, zip, count } from "./iterate";
 import { gcd, lcm, factorial, divisors, Matrix, matrix, sum, product } from "./math";
 import { parseNumbers } from "./parse";
 import { Range, range } from "./range";
@@ -27,6 +27,8 @@ const elf = {
 	combinations,
 	permutations,
 	rotate,
+	zip,
+	count,
 	sum,
 	product,
 	gcd,

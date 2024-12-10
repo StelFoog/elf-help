@@ -1,5 +1,10 @@
 # Elf Help
 
+![Tests Status](https://img.shields.io/github/actions/workflow/status/StelFoog/elf-help/test.yml?style=flat&label=Tests)
+![NPM Version](https://img.shields.io/npm/v/elf-help)
+![NPM Last Update](https://img.shields.io/npm/last-update/elf-help)
+![License](https://img.shields.io/github/license/StelFoog/elf-help)
+
 Your very own helper elf; tools and functions to help with problems that may be encountered during advent of code.
 
 ## Usage
@@ -60,6 +65,8 @@ import { linesIntersect2D, ElfCartesianError } from "elf-help";
 | `permutations` | Returns all permutations of a list, optionally limited to `n`-length permutations |
 | `combinations` | Returns all combinations of a list, optionally limited to `n`-length combinations |
 | `rotate`       | Returns all copy of an array rotated `n` steps                                    |
+| `zip`          | Combines two same length arrays                                                   |
+| `count`        | Counts all elements of an array                                                   |
 
 ### Math
 

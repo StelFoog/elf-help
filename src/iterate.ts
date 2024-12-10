@@ -5,8 +5,9 @@ export class ElfIterateError extends Error {
 }
 
 /**
- * Returns all possible permutations of an array
+ * Returns all `n`-length permutations of an array
  * @param list Array which to permute
+ * @param n Defaults to `list.length`
  */
 export function permutations<T>(list: T[], n: number = list.length): T[][] {
 	if (!Number.isInteger(n) || n < 0) throw new ElfIterateError(`n=${n} is not a positive integer`);
@@ -74,4 +75,31 @@ export function rotate<T>(list: T[], n: number): T[] {
 		const pos = (idx - n) % list.length;
 		return list[pos < 0 ? list.length + pos : pos];
 	});
+}
+
+/**
+ * Zips together two same-length arrays
+ * @returns An array of tuples
+ * @example
+ * elf.zip([1, 2, 3], ["a", "b", "c"]) => [[1, "a"], [2, "b"], [3, "c"]]
+ */
+export function zip<T, S>(a: T[], b: S[]): [T, S][] {
+	if (a.length !== b.length)
+		throw new ElfIterateError(
+			`Lengths of arrays a (${a.length}) and b (${b.length}) are not equal`
+		);
+
+	return a.map((v, idx) => [v, b[idx]]);
+}
+
+/**
+ * Counts all elements of an array
+ * @returns An object where the keys are the elements and the values are the occurances
+ * @example
+ * elf.count([1, 2, 3, 4, 5, 1, 2, 3, 1]) => { 1: 3, 2: 2, 3: 2, 4: 1, 5: 1 }
+ */
+export function count<T extends string | number | symbol>(list: T[]): Record<T, number> {
+	const res = {} as Record<T, number>;
+	list.forEach((v) => (res[v] = (res[v] ?? 0) + 1));
+	return res;
 }
