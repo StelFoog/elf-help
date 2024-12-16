@@ -1,6 +1,6 @@
 {
 	"name": "elf-help",
-	"version": "0.6.0",
+	"version": "0.7.0",
 	"description": "Helper tools for advent of code, your very own helper elf",
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
@@ -13,6 +13,7 @@
 		"url": "git+https://github.com/StelFoog/elf-help.git"
 	},
 	"keywords": [
+		"elf help",
 		"advent-of-code",
 		"aoc",
 		"tools",
@@ -22,6 +23,7 @@
 		"fraction",
 		"iterate",
 		"math",
+		"queue",
 		"range",
 		"parse"
 	],

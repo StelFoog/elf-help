@@ -87,6 +87,16 @@ import { linesIntersect2D, ElfCartesianError } from "elf-help";
 | `ElfMathError`       | Error thrown by math functions                                                     |
 | `ElfMatrixError`     | Error thrown by matrix functions                                                   |
 
+### Ordered queue
+
+| Feature                | Description                              |
+| ---------------------- | ---------------------------------------- |
+| `new OrderedQueue`     | Creates a new `OrderedQueue` object      |
+| `orderedQueue`         | Clone of `new OrderedQueue`              |
+| `OrderedQueue.add`     | Adds a new element to the queue          |
+| `OrderedQueue.dequeue` | Removes the first element from the queue |
+| `OrderedQueue.length`  | Amount of elements in the queue          |
+
 ### Range
 
 | Feature          | Description                                                                            |

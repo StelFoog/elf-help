@@ -10,6 +10,7 @@ import {
 import { Fraction, fraction } from "./fraction";
 import { combinations, permutations, rotate, zip, count } from "./iterate";
 import { gcd, lcm, factorial, divisors, Matrix, matrix, sum, product } from "./math";
+import { OrderedQueue, orderedQueue } from "./orderedQueue";
 import { parseNumbers } from "./parse";
 import { Range, range } from "./range";
 
@@ -31,6 +32,8 @@ const elf = {
 	count,
 	sum,
 	product,
+	OrderedQueue,
+	orderedQueue,
 	gcd,
 	lcm,
 	factorial,
@@ -46,6 +49,7 @@ export * from "./cartesian";
 export * from "./fraction";
 export * from "./iterate";
 export * from "./math";
+export * from "./orderedQueue";
 export * from "./parse";
 export * from "./range";
 
