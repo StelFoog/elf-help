@@ -6,8 +6,10 @@ export class ElfRangeError extends Error {
 
 /**
  * Defines a inclusive range between two integers
+ *
+ * Can be used as an iterator
  */
-export class Range {
+export class Range implements Iterable<number> {
 	readonly start: number;
 	readonly end: number;
 
@@ -24,9 +26,9 @@ export class Range {
 		 */
 		end: number
 	) {
-		if (!Number.isInteger(start)) throw new ElfRangeError('`start` is not an integer');
-		if (!Number.isInteger(end)) throw new ElfRangeError('`end` is not an integer');
-		if (start > end) throw new ElfRangeError('`start` is greater than `end`');
+		if (!Number.isInteger(start)) throw new ElfRangeError("`start` is not an integer");
+		if (!Number.isInteger(end)) throw new ElfRangeError("`end` is not an integer");
+		if (start > end) throw new ElfRangeError("`start` is greater than `end`");
 
 		this.start = start;
 		this.end = end;
@@ -89,6 +91,10 @@ export class Range {
 		}
 
 		return null;
+	}
+
+	*[Symbol.iterator]() {
+		for (let i = this.start; i <= this.end; i++) yield i;
 	}
 
 	private get __copy__() {
