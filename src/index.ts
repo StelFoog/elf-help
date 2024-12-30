@@ -9,6 +9,8 @@ import {
 } from "./cartesian";
 import { Fraction, fraction } from "./fraction";
 import { combinations, permutations, rotate, zip, count } from "./iterate";
+import { memoize } from "./memoize";
+import { MultiMap, multiMap } from "./multiMap";
 import { gcd, lcm, factorial, divisors, Matrix, matrix, sum, product } from "./math";
 import { OrderedQueue, orderedQueue } from "./orderedQueue";
 import { parseNumbers } from "./parse";
@@ -30,6 +32,9 @@ const elf = {
 	rotate,
 	zip,
 	count,
+	memoize,
+	MultiMap,
+	multiMap,
 	sum,
 	product,
 	OrderedQueue,
@@ -48,6 +53,7 @@ const elf = {
 export * from "./cartesian";
 export * from "./fraction";
 export * from "./iterate";
+export * from "./multiMap";
 export * from "./math";
 export * from "./orderedQueue";
 export * from "./parse";

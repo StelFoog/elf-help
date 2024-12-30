@@ -6,7 +6,6 @@ Planned future features
 
 | Type      | Feature               |
 | --------- | --------------------- |
-| Math      | Cobination            |
 | Math      | Matrix multiplication |
 | Cartesian | Polygon               |
 | Cartesian | Polygon area          |
@@ -24,4 +23,5 @@ Planned future features
 | Math      | GCD and LCM        |
 | Math      | Matrix             |
 | Math      | Matrix determinant |
+| Iterate   | Cobination         |
 | Range     | Range functions    |

@@ -57,16 +57,18 @@ import { linesIntersect2D, ElfCartesianError } from "elf-help";
 | `Fraction.multiply` | Multiplies together two fractions                 |
 | `Fraction.divide`   | Divides two fractions                             |
 | `Fraction.value`    | Returns the number representation of the fraction |
+| `ElfFractionError`  | Error thrown by fraction features                 |
 
 ### Iterate
 
-| Feature        | Description                                                                       |
-| -------------- | --------------------------------------------------------------------------------- |
-| `permutations` | Returns all permutations of a list, optionally limited to `n`-length permutations |
-| `combinations` | Returns all combinations of a list, optionally limited to `n`-length combinations |
-| `rotate`       | Returns all copy of an array rotated `n` steps                                    |
-| `zip`          | Combines two same length arrays                                                   |
-| `count`        | Counts all elements of an array                                                   |
+| Feature           | Description                                                                       |
+| ----------------- | --------------------------------------------------------------------------------- |
+| `permutations`    | Returns all permutations of a list, optionally limited to `n`-length permutations |
+| `combinations`    | Returns all combinations of a list, optionally limited to `n`-length combinations |
+| `rotate`          | Returns all copy of an array rotated `n` steps                                    |
+| `zip`             | Combines two same length arrays                                                   |
+| `count`           | Counts all elements of an array                                                   |
+| `ElfIterateError` | Error thrown by iterate features                                                  |
 
 ### Math
 
@@ -86,6 +88,24 @@ import { linesIntersect2D, ElfCartesianError } from "elf-help";
 | `Matrix.determinant` | Finds the determinant of a square matrix                                           |
 | `ElfMathError`       | Error thrown by math functions                                                     |
 | `ElfMatrixError`     | Error thrown by matrix functions                                                   |
+
+### Memoize
+
+| Feature   | Description         |
+| --------- | ------------------- |
+| `memoize` | Memoizes a function |
+
+### Multi map
+
+| Feature            | Description                                      |
+| ------------------ | ------------------------------------------------ |
+| `new MultiMap`     | Creates a new `MultiMap` object                  |
+| `multiMap`         | Clone of `new MultiMap`                          |
+| `MultiMap.set`     | Sets a value to the corresponding set of keys    |
+| `MultiMap.get`     | Gets a value from the corresponding set of keys  |
+| `MultiMap.delete`  | Deletes a value at the corresponding set of keys |
+| `MultiMap.size`    | Amount of values stored in the map               |
+| `ElfMultiMapError` | Error thrown by multi map features               |
 
 ### Ordered queue
 
