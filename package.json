@@ -1,6 +1,6 @@
 {
 	"name": "elf-help",
-	"version": "0.8.0",
+	"version": "0.9.0",
 	"description": "Helper tools for advent of code, your very own helper elf",
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",

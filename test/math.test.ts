@@ -12,6 +12,38 @@ describe("product", () => {
 	});
 });
 
+describe("mean", () => {
+	test("7, 2, 0, 6, -5", () => {
+		expect(elf.mean(7, 2, 0, 6, -5)).toBe(2);
+	});
+
+	test("1, 21, 46, 67", () => {
+		expect(elf.mean(1, 21, 46, 67)).toBe(33.75);
+	});
+
+	test("empty mean input", () => {
+		expect(() => elf.mean()).toThrow(ElfMathError);
+	});
+});
+
+describe("median", () => {
+	test("7, 2, 0, 6, -5", () => {
+		expect(elf.median(7, 2, 0, 6, -5)).toBe(2);
+	});
+
+	test("7, 2, 0, 6, -5, 3", () => {
+		expect(elf.median(7, 2, 0, 6, -5, 3)).toBe(2.5);
+	});
+
+	test("8", () => {
+		expect(elf.median(8)).toBe(8);
+	});
+
+	test("empty median input", () => {
+		expect(() => elf.median()).toThrow(ElfMathError);
+	});
+});
+
 describe("gcd", () => {
 	test("Returns greatest common divisor", () => {
 		expect(elf.gcd(58, 16)).toBe(2);

@@ -6,6 +6,7 @@ Planned future features
 
 | Type      | Feature               |
 | --------- | --------------------- |
+| Math      | mode                  |
 | Math      | Matrix multiplication |
 | Cartesian | Polygon               |
 | Cartesian | Polygon area          |

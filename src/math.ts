@@ -13,11 +13,32 @@ export function sum(...numbers: number[]) {
 }
 
 /**
- * Returns the product of  a list of numbers
+ * Returns the product of a list of numbers
  * @returns Product
  */
 export function product(...numbers: number[]) {
 	return numbers.reduce((prev, curr) => prev * curr, 1);
+}
+
+/**
+ * Finds the mean of a list of numbers
+ * @returns Mean value
+ */
+export function mean(...numbers: number[]) {
+	if (!numbers.length) throw new ElfMathError("Cannot find median of no numbers");
+	return sum(...numbers) / numbers.length;
+}
+
+/**
+ * Finds the median of a list of numbers
+ * @returns Median number
+ */
+export function median(...numbers: number[]) {
+	if (!numbers.length) throw new ElfMathError("Cannot find median of no numbers");
+	numbers.sort((a, b) => a - b); // sort mutate since the array is created by function call
+
+	const half = Math.floor(numbers.length / 2);
+	return numbers.length % 2 ? numbers[half] : (numbers[half] + numbers[half - 1]) / 2;
 }
 
 /**
