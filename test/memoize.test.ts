@@ -54,4 +54,16 @@ describe("memoize", () => {
 		expect(cached([2, 1], 2)).toBe(3);
 		expect(func).toHaveBeenCalledTimes(2);
 	});
+
+	test("Memoizes with keyMap using context", () => {
+		const func = jest.fn((range, time) => time % (range * 2));
+		const cached = elf.memoize(func, [undefined, (val, [range]) => val % (range * 2)]);
+
+		expect(cached(3, 7)).toBe(1);
+		expect(cached(3, 13)).toBe(1);
+		expect(func).toHaveBeenCalledTimes(1);
+		expect(cached(2, 7)).toBe(3);
+		expect(cached(2, 11)).toBe(3);
+		expect(func).toHaveBeenCalledTimes(2);
+	});
 });

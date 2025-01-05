@@ -16,16 +16,16 @@ export function memoize<Args extends any[], Return>(
 	func: (...args: Args) => Return,
 	keyMap: {
 		[K in keyof Args]: Args[K] extends symbol | number | string
-			? undefined | ((val: Args[K]) => symbol | number | string)
-			: (val: Args[K]) => symbol | number | string;
+			? undefined | ((val: Args[K], context: Args) => symbol | number | string)
+			: (val: Args[K], context: Args) => symbol | number | string;
 	}
 ): (...args: Args) => Return;
 export function memoize<Args extends any[], Return>(
 	func: (...args: Args) => Return,
 	keyMap?: {
 		[K in keyof Args]: Args[K] extends symbol | number | string
-			? undefined | ((val: Args[K]) => symbol | number | string)
-			: (val: Args[K]) => symbol | number | string;
+			? undefined | ((val: Args[K], context: Args) => symbol | number | string)
+			: (val: Args[K], context: Args) => symbol | number | string;
 	}
 ): (...args: Args) => Return {
 	const cache = multiMap<Return>(func.length);
@@ -33,7 +33,7 @@ export function memoize<Args extends any[], Return>(
 	return (...args: Args) => {
 		let keys: (symbol | number | string)[];
 		if (!keyMap) keys = args;
-		else keys = keyMap.map((fn, idx) => fn?.(args[idx]) ?? args[idx]);
+		else keys = keyMap.map((fn, idx) => fn?.(args[idx], args) ?? args[idx]);
 
 		const has = cache.get(...keys);
 		if (has !== undefined) return has;
